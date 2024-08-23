@@ -1,0 +1,64 @@
+# Arraylist
+Activities about Arraylist
+
+using System;
+using System.Collections;
+
+public class Programa
+{
+    public static ArrayList numerosint = new ArrayList();
+    public static void Main()
+    {
+        Iniciar();
+    }
+
+    public static void Iniciar()
+    {
+        int num = 0;
+        Console.WriteLine("Escolha uma das opções:\n1 - inserir elemento; 2 - remover elemento; 3 - listar elementos; 4 - pesquisar elemento; 5 - sair");
+        num = int.Parse(Console.ReadLine());
+        switch(num){
+            case 1: Inserir(); break;
+            case 2: Remover(); break;
+            case 3: Listar(); break;
+            case 4: Pesquisar(); break;
+            case 5: return;
+            default: break;
+        }
+    }
+    static void Inserir()
+    {
+        Console.WriteLine("Escreva um número: ");
+        int num1=int.Parse(Console.ReadLine());
+        numerosint.Add(num1);
+        Console.WriteLine("Número adicionado com sucesso!");
+        Iniciar();
+    }
+    static void Remover()
+    {
+        Console.WriteLine("Escreva o número que deseja remover: ");
+        int num2=int.Parse(Console.ReadLine());
+        numerosint.Remove(num2);
+        Console.WriteLine("Número removido com sucesso!");
+        Iniciar();
+    }
+    static void Listar()
+    {
+        foreach(int item in numerosint){
+            Console.Write(item+" ");
+        }
+        Iniciar();
+    }
+    static void Pesquisar()
+    {
+        Console.WriteLine("Escreva o número que deseja pesquisar: ");
+        int num3=int.Parse(Console.ReadLine());
+        if(numerosint.BinarySearch(num3)==null){
+            Console.WriteLine("Número não foi encontrado.");
+        }
+        else{
+            Console.WriteLine("Número foi encontrado!");
+        }
+        Iniciar();
+    }
+}
